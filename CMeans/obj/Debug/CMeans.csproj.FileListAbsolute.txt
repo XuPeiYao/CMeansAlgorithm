@@ -1,0 +1,6 @@
+C:\Users\XuPeiYao\Documents\GitHub\CMeans\CMeans\bin\Debug\CMeans.exe.config
+C:\Users\XuPeiYao\Documents\GitHub\CMeans\CMeans\bin\Debug\CMeans.exe
+C:\Users\XuPeiYao\Documents\GitHub\CMeans\CMeans\bin\Debug\CMeans.pdb
+C:\Users\XuPeiYao\Documents\GitHub\CMeans\CMeans\obj\Debug\CMeans.csprojResolveAssemblyReference.cache
+C:\Users\XuPeiYao\Documents\GitHub\CMeans\CMeans\obj\Debug\CMeans.exe
+C:\Users\XuPeiYao\Documents\GitHub\CMeans\CMeans\obj\Debug\CMeans.pdb
