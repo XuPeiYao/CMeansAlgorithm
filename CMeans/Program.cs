@@ -8,13 +8,13 @@ namespace CMeans {
     public class Program {
         public static void Main(string[] args) {
             Random rand = new Random();
-            List<double[]> data = Enumerable.Range(1, 40).Select(x => new double[] { rand.NextDouble(0,999)}).ToList();
-            
-            List<Classify> result = CMeans(3, data);
+            List<double[]> data = Enumerable.Range(0, 10).Select(x => new double[] { rand.NextDouble(0,99999)}).ToList();
+                
+            List<Classify> result = CMeans(10, data);
 
             foreach(var item in result) {
                 Console.WriteLine($"===== {item.Id} (Count:{item.Values.Count}) =====");
-                foreach(var item2 in item.Values) {
+                foreach(var item2 in item.Values.OrderBy(x=>x.Average())) {
                     Console.WriteLine(string.Join(", ", item2));
                 }
             }
@@ -38,17 +38,19 @@ namespace CMeans {
             while (true) {
                 Centers = GetCenters(classCount, m, u, Values);
                 double j_new = J(m, u, Centers, Values);
-                if(_j != -1 && Math.Abs(j_new - _j) < diff) break;
+                //double temp = Math.Abs(j_new - _j);
+                if (_j != -1 && Math.Abs(j_new - _j) < diff) break;
                 _j = j_new;
                 
                 for(int i = 0; i < u.Length ; i++) {
                     for(int j = 0; j < u[i].Length; j++) {
-                        u[i][j] = 1/ Enumerable.Range(0,classCount).Select(x=>
+                        u[i][j] = 1 / Enumerable.Range(0,classCount).Select(x=>
                             Math.Pow(
                                 Math.Sqrt(Dist(Values[i],Centers[j])) / Math.Sqrt(Dist(Values[i],Centers[x]))
                                 ,2/(m-1)
                             )
                         ).Sum();
+                        if (double.IsNaN(u[i][j])) u[i][j] = 1;
                     }
                 }
             }
